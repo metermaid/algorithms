@@ -1,0 +1,15 @@
+Find one object that is pointed by all other objects. Find the center of graph (2)
+Compute all elements of A (by the help of Floyd-Warshall algorithm)
+
+# dist(i) - length of shortest path from i to its farthest vertex
+For i = 1 to N
+    dist(i) = 0
+    For j = 1 to N
+        If ( i != j AND A(i,j) > dist(i) ) Then dist(i)=A(i,j)
+End For i
+
+center = 1
+For i = 1 to N
+    If dist(i) < dist(center) Then center = i
+
+Output center

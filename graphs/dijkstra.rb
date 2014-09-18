@@ -1,17 +1,8 @@
+load 'implementation.rb'
+
 # dijkstras algorithm
 class Graph
-   Node = Struct.new(:name, :neighbours)
    Distance = Struct.new(:node, :closest_node, :distance)
-
-   def initialize(graph)# [[node1, node2, dist], etc.]
-      @vertices = Hash.new{|h,k| h[k]=Node.new(k,[])} # quick lookups
-      @edges = {}
-      graph.each do |(v1, v2, dist)|
-         @vertices[v1].neighbours << v2
-         @vertices[v2].neighbours << v1
-         @edges[[v1, v2]] = @edges[[v2, v1]] = dist
-      end
-   end
 
   def djikstra(source)
    vertices = @vertices.values
